@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,15 +18,16 @@ import org.springframework.web.client.RestTemplate;
 
 // AirtimeService.java
 @Service
+@RequiredArgsConstructor
 public class AirtimeService {
     private final RestTemplate restTemplate;
     private final AirtimeProperties airtimeProperties;
 
-    @Autowired
-    public AirtimeService(RestTemplate restTemplate, AirtimeProperties airtimeProperties) {
-        this.restTemplate = restTemplate;
-        this.airtimeProperties = airtimeProperties;
-    }
+//    @Autowired
+//    public AirtimeService(RestTemplate restTemplate, AirtimeProperties airtimeProperties) {
+//        this.restTemplate = restTemplate;
+//        this.airtimeProperties = airtimeProperties;
+//    }
 
     public AirtimeResponse purchaseAirtime(String phoneNumber, int amount) {
         HttpHeaders headers = new HttpHeaders();
